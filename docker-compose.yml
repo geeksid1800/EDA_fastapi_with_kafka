@@ -10,7 +10,7 @@ services:
     ports:
       - "22181:2181" #localhost:22181 -> container:2181
   broker:
-    image: confluentinc/cp-kafka:latest
+    image: confluentinc/cp-kafka:7.9.2
     container_name: broker
     depends_on:
       - zookeper
