@@ -21,6 +21,7 @@ producer = KafkaProducer(
 
 def produce_kafka_message(message_payload: ProduceMessage):
     message_text = message_payload.message #Get the 'message' field from the Pydantic object
+    print(f"Got {message_text=}")
     try:
         producer.send(KAFKA_TOPIC, {'message': message_text})
         producer.flush()  # ensures all messages are sent
