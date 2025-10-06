@@ -19,9 +19,10 @@ producer = KafkaProducer(
     client_id=PRODUCER_CLIENT_ID
 )
 
-def produce_kafka_message(message: str):
+def produce_kafka_message(message_payload: ProduceMessage):
+    message_text = message_payload.message #Get the 'message' field from the Pydantic object
     try:
-        producer.send(KAFKA_TOPIC, {'message': message})
+        producer.send(KAFKA_TOPIC, {'message': message_text})
         producer.flush()  # ensures all messages are sent
     except Exception as e:
         print(e)
