@@ -1,6 +1,6 @@
 from kafka import KafkaProducer
 from fastapi import HTTPException
-from produce_schema import ProduceMessage
+from fastapi_producer.produce_schema import ProduceMessage
 import json
 
 #CONSTS
