@@ -30,6 +30,17 @@ def create_kafka_consumer():
     )
     return consumer
 
+# #https://huzzefakhan.medium.com/apache-kafka-in-python-d7489b139384
+# consumer = create_kafka_consumer()
+# for message in consumer:
+#     '''
+#     message = ConsumerRecord(topic='fastapi-topic', partition=0, offset=11, timestamp=1759845668765, timestamp_type=0, key=None, value={'message': 'm1'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
+#     type(message) =  <class 'kafka.consumer.fetcher.ConsumerRecord'>
+#     '''
+#     value = message.value
+#     print(value['message'] if value else "")
+# #run this using `python ./fastapi_consumer/main.py` and it will print out everything in stdout
+
 async def poll_consumer(consumer: KafkaConsumer):
     try:
         while not stop_polling_event.is_set():
